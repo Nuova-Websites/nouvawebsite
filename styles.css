@@ -272,6 +272,27 @@ p {
     overflow: hidden;
 }
 
+/* Binary Background */
+.binary-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.binary-text {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--neon-blue);
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: 2px;
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -459,11 +480,16 @@ p {
     position: absolute;
     bottom: -5px;
     left: 0;
-    width: 100%;
+    width: 0;
     height: 3px;
     background: linear-gradient(135deg, var(--neon-blue) 0%, var(--deep-blue) 100%);
     border-radius: 2px;
     box-shadow: 0 0 10px rgba(3, 181, 229, 0.5);
+    transition: width 1.2s ease-out;
+}
+
+.section-header h2.animate-in::after {
+    width: 100%;
 }
 
 .section-header p {
@@ -513,8 +539,8 @@ p {
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-lg), 0 0 30px rgba(229, 91, 242, 0.2);
-    border-color: var(--neon-pink);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(3, 181, 229, 0.3);
+    border-color: var(--neon-blue);
 }
 
 
@@ -583,9 +609,9 @@ p {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--neon-pink);
+    color: var(--neon-blue);
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(229, 91, 242, 0.6);
+    text-shadow: 0 0 10px rgba(3, 181, 229, 0.6);
 }
 
 
@@ -723,8 +749,13 @@ p {
 }
 
 .pricing-features i {
-    color: var(--neon-pink);
+    color: var(--neon-blue);
     font-size: 1.1rem;
+    text-shadow: 0 0 10px rgba(3, 181, 229, 0.6);
+}
+
+.pricing-card.featured .pricing-features i {
+    color: var(--neon-pink);
     text-shadow: 0 0 10px rgba(229, 91, 242, 0.6);
 }
 
@@ -762,9 +793,9 @@ p {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--neon-pink);
+    background: var(--neon-blue);
     transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(229, 91, 242, 0.5);
+    box-shadow: 0 0 10px rgba(3, 181, 229, 0.5);
 }
 
 .process-step {
@@ -1293,4 +1324,52 @@ textarea:focus,
 a:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+/* Scroll-triggered animations */
+.service-card,
+.pricing-card,
+.process-step,
+.contact-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.service-card.animate-in,
+.pricing-card.animate-in,
+.process-step.animate-in,
+.contact-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Floating animation for hero image */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Scale animation on card hover */
+.service-card:hover,
+.pricing-card:hover {
+    animation: none;
+}
+
+/* Add pulse effect to pricing featured card */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.pricing-card.featured.animate-in {
+    animation: pulse 2s ease-in-out infinite;
 }
