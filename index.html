@@ -283,7 +283,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxHLShKBQjrS8f44JTe8G2f0eDgX-JokgMUjN94ciU_XdrngMYqsn08Pi-C5qj1pnOJ0g/exec">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -306,6 +306,7 @@
                         <textarea id="message" name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    <div id="formMessage" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 500;"></div>
                 </form>
             </div>
         </div>
