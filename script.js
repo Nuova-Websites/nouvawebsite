@@ -153,13 +153,13 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all service cards
 document.querySelectorAll('.service-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
+    card.style.transitionDelay = `${index * 0.2}s`;
     observer.observe(card);
 });
 
 // Observe all pricing cards
 document.querySelectorAll('.pricing-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.15}s`;
+    card.style.transitionDelay = `${index * 0.3}s`;
     observer.observe(card);
 });
 

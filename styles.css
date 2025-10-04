@@ -1330,7 +1330,7 @@ a:focus {
 .contact-item {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
 }
 
 .service-card.animate-in,
