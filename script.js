@@ -163,10 +163,18 @@ document.querySelectorAll('.pricing-card').forEach((card, index) => {
     observer.observe(card);
 });
 
-// Observe process steps
-document.querySelectorAll('.process-step').forEach((step, index) => {
-    step.style.transitionDelay = `${index * 0.1}s`;
-    observer.observe(step);
+// Observe process cards with alternating delays
+document.querySelectorAll('.process-card').forEach((card, index) => {
+    // Each card gets a 0.3s delay, creating a nice staggered effect
+    card.style.transitionDelay = `${index * 0.3}s`;
+    observer.observe(card);
+});
+
+// Observe process arrows
+document.querySelectorAll('.process-arrow').forEach((arrow, index) => {
+    // Arrows appear slightly after their preceding card
+    arrow.style.transitionDelay = `${(index + 1) * 0.3 + 0.1}s`;
+    observer.observe(arrow);
 });
 
 // Observe section headers for underline animation
