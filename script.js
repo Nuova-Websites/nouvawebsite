@@ -188,5 +188,68 @@ document.querySelectorAll('.contact-item').forEach((item, index) => {
     observer.observe(item);
 });
 
+// Generate binary lines in hero section
+function generateBinaryLines() {
+    const container = document.querySelector('.binary-lines');
+    if (!container) return;
+    
+    const lineCount = 25; // Increased number of binary lines
+    const positions = []; // Track positions to avoid overlaps
+    
+    for (let i = 0; i < lineCount; i++) {
+        const line = document.createElement('div');
+        line.className = 'binary-line';
+        
+        // Generate random binary string (12-20 characters)
+        const length = Math.floor(Math.random() * 9) + 12;
+        let binary = '';
+        for (let j = 0; j < length; j++) {
+            binary += Math.random() > 0.5 ? '1' : '0';
+        }
+        line.textContent = binary;
+        
+        // Find a position that doesn't overlap with existing lines
+        let position;
+        let attempts = 0;
+        const maxAttempts = 50;
+        
+        do {
+            position = {
+                top: Math.random() * 90, // 0-90% to avoid edge overflow
+                left: Math.random() * 90  // 0-90% to avoid edge overflow
+            };
+            attempts++;
+        } while (hasOverlap(position, positions) && attempts < maxAttempts);
+        
+        // If we found a valid position or ran out of attempts, place the line
+        if (attempts < maxAttempts || positions.length === 0) {
+            line.style.top = `${position.top}%`;
+            line.style.left = `${position.left}%`;
+            positions.push(position);
+            container.appendChild(line);
+        }
+    }
+}
+
+// Check if a position overlaps with existing positions
+function hasOverlap(newPos, existingPositions) {
+    const minDistance = 12; // Minimum distance between lines (in %)
+    
+    for (let pos of existingPositions) {
+        const distance = Math.sqrt(
+            Math.pow(newPos.top - pos.top, 2) + 
+            Math.pow(newPos.left - pos.left, 2)
+        );
+        
+        if (distance < minDistance) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// Initialize binary lines when page loads
+window.addEventListener('load', generateBinaryLines);
 
 
