@@ -285,6 +285,18 @@ p {
     overflow: hidden;
 }
 
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.2;
+    transform: scaleX(-1);
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -293,8 +305,8 @@ p {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 0% 0%, rgba(3, 181, 229, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(229, 91, 242, 0.25) 0%, transparent 50%);
+        radial-gradient(circle at 0% 0%, rgba(3, 181, 229, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(229, 91, 242, 0.08) 0%, transparent 50%);
     z-index: 1;
     pointer-events: none;
 }
@@ -344,50 +356,6 @@ p {
     justify-content: center;
 }
 
-.hero-stats {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--neon-blue);
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 20px rgba(3, 181, 229, 0.6), 1px 1px 4px rgba(0, 0, 0, 0.8);
-}
-
-.stat h3.rotating-to-infinity {
-    animation: rotateToInfinity 0.5s ease-in-out forwards;
-}
-
-@keyframes rotateToInfinity {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-    40% {
-        transform: rotate(270deg) scale(1.15);
-    }
-    60% {
-        transform: rotate(270deg) scale(1.15);
-    }
-    100% {
-        transform: rotate(0deg) scale(1.35);
-    }
-}
-
-.stat p {
-    color: #cbd5e1;
-    font-size: 0.9rem;
-    margin: 0;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-}
 
 
 
@@ -1201,11 +1169,6 @@ p {
 
     .hero-buttons {
         flex-wrap: wrap;
-    }
-
-    .hero-stats {
-        flex-wrap: wrap;
-        gap: 1.5rem;
     }
 
     .services-grid {

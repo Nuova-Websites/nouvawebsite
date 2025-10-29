@@ -108,61 +108,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Counter animation for hero stats
-function animateCounter(element, target, duration = 2000, suffix = '') {
-    let current = 0;
-    const increment = target / (duration / 16); // 60fps
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target + suffix;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current) + suffix;
-        }
-    }, 16);
-}
-
-// Special animation for revisions counter: count to 8 then rotate to infinity
-function animateRevisions(element) {
-    let current = 0;
-    const target = 8;
-    const duration = 1200; // Match the duration of other counters
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = '8';
-            clearInterval(timer);
-            
-            // After reaching 8, immediately start rotation
-            setTimeout(() => {
-                element.classList.add('rotating-to-infinity');
-                
-                // Change to infinity symbol after it's fully rotated and held sideways
-                setTimeout(() => {
-                    element.textContent = '∞';
-                }, 240); // Change symbol when fully rotated and held at 270 degrees
-            }, 50);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-}
-
-// Initialize counter animations when page loads
-window.addEventListener('load', () => {
-    const stats = document.querySelectorAll('.hero-stats .stat h3');
-    if (stats.length >= 3) {
-        // Animate "48 hrs"
-        animateCounter(stats[0], 48, 1200, ' hrs');
-        // Animate revisions with special infinity animation
-        animateRevisions(stats[1]);
-        // Animate "100%"
-        animateCounter(stats[2], 100, 1200, '%');
-    }
-});
 
 // Intersection Observer for scroll animations
 const observerOptions = {
