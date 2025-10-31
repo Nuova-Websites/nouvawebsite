@@ -219,6 +219,10 @@ p {
     transform: scale(1.05);
 }
 
+.nav-logo-text:focus {
+    outline: none;
+}
+
 
 
 .nav-menu {
@@ -258,6 +262,10 @@ p {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.nav-link:focus {
+    outline: none;
 }
 
 .hamburger {
@@ -1232,6 +1240,38 @@ p {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    .hosting-info-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .hosting-info-left {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .hosting-info-main h3 {
+        white-space: normal;
+        font-size: 1.25rem;
+    }
+
+    .hosting-price {
+        font-size: 1.5rem;
+    }
+
+    .hosting-features {
+        width: 100%;
+    }
+
+    .hosting-features li {
+        white-space: normal;
+        flex-wrap: wrap;
     }
 }
 
