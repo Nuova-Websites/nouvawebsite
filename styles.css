@@ -1091,7 +1091,7 @@ p {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-bottom: 2rem;
     position: relative;
@@ -1238,7 +1238,7 @@ p {
     }
 
     .footer-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         text-align: center;
     }
 
@@ -1296,6 +1296,10 @@ p {
     .btn {
         width: 100%;
         max-width: 300px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 }
 
