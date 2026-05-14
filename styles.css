@@ -52,7 +52,7 @@
 
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
@@ -139,8 +139,7 @@ p {
 }
 
 .btn-secondary:hover {
-    background: var(--neon-pink);
-    color: var(--darkest);
+    background: rgba(229, 91, 242, 0.12);
     box-shadow: var(--shadow-pink), 0 0 30px rgba(229, 91, 242, 0.4);
     transform: translateY(-2px);
 }
@@ -334,11 +333,16 @@ p {
 
 .hero-title {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 1.5rem;
     line-height: 1.1;
-    color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', 'Consolas', monospace;
+}
+
+.hero-title .nav-logo-bracket {
+    text-shadow: 0 0 10px rgba(3, 181, 229, 0.35);
 }
 
 .hero-subtitle {
@@ -646,8 +650,8 @@ p {
 /* Guarantee Section */
 .guarantee {
     padding: 60px 0;
-    background: var(--bg-tertiary);
-    border-top: 2px solid var(--neon-blue);
+    background: #0f0009;
+    border-top: 2px solid var(--neon-pink);
     border-bottom: 2px solid var(--neon-pink);
     position: relative;
 }
@@ -1487,7 +1491,7 @@ a:focus {
         transform: scale(1.05);
     }
     50% {
-        transform: scale(1.08);
+        transform: scale(1.06);
     }
 }
 
